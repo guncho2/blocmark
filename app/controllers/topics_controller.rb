@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
   def index
 
     @topics = Topic.all
+
     # return a collection of topics
   end
 
@@ -23,7 +24,7 @@ def create
 
   if @topic.save
     flash[:notice] = "Topic was saved succesfully"
-    redirect_to topics_new_path
+    redirect_to @topic
   else
     flash[:error] = "There was an error creating a Topic, please try again"
     render:new

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   resources :topics
 
-	  
 
+post 'topics/show'
   get 'topics/index'
   get 'topics/show'
   get 'topics/new'

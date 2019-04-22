@@ -12,12 +12,19 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to bookmark.url, bookmark %>
+            <%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %>
           </h4>
+          <small>
+             submitted <%= time_ago_in_words(bookmark.created_at) %> ago <br>
+             <%= topic.bookmarks.count %> bookmarks
+
+           </small>
+
         </div>
       </div>
-    <% end %>
+
   </div>
+<% end %>
   <div class="col-md-4">
     <%= link_to "New Bookmark", new_bookmark_path(@topic), class: 'btn btn-success' %>
   </div>

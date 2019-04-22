@@ -1,0 +1,27 @@
+<h1>New bookmark</h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<p>Guidelines for bookmarks</p>
+		<ul>
+			<li>Make sure it rhymes.</li>
+			<li>Don't use the letter "A".</li>
+			<li>The incessant use of hashtags will get you banned.</li>
+		</ul>
+	</div>
+	<div class="col-md-8">
+		<%= form_for @bookmark do |f| %>
+			<div class="form-group">
+# #13
+				<%= f.label :url %>
+# #14
+				<%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark url" %>
+			</div>
+
+			<div class="form-group">
+# #15
+				<%= f.submit "Save", class: 'btn btn-success' %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
+resources :bookmarks
+
+  get 'bookmarks/index'
+  get 'bookmarks/show'
+  get 'bookmarks/new'
+  get 'bookmarks/edit'
+
   resources :topics
+
 
 
 post 'topics/show'

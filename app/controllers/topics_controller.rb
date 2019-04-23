@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
 
@@ -54,7 +54,7 @@ def edit
 
 	    if @topic.destroy
 	      flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
-	      redirect_to topics_new_path
+	      redirect_to topics_path
 	    else
 	      flash[:error] = "There was an error deleting the topic."
 	      render :show

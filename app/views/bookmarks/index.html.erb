@@ -1,11 +1,11 @@
 
 <h1>All bookmarks</h1>
 <% @bookmarks.each do |bookmarks| %>
-	<p><%= link_to bookmarks.title, bookmark %></p>
+	<p><%= link_to bookmarks.url, bookmark %></p>
 	<div class="media">
 		<div class="media-body">
 			<h4 class="media-heading">
-				<%= link_to bookmark.title, bookmark %>
+				<%= link_to bookmark.url, bookmark %>
 			</h4>
 		</div>
 	</div>

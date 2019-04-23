@@ -10,16 +10,16 @@
 		</ul>
 	</div>
 	<div class="col-md-8">
-		<%= form_for @bookmark do |f| %>
+		<%= form_for [@topic, @bookmark] do |f| %>
 			<div class="form-group">
-# #13
+
 				<%= f.label :url %>
-# #14
+
 				<%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark url" %>
 			</div>
 
 			<div class="form-group">
-# #15
+
 				<%= f.submit "Save", class: 'btn btn-success' %>
 			</div>
 		<% end %>

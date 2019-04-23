@@ -26,9 +26,9 @@ class BookmarksController < ApplicationController
 	  end
 
 	  def create
- #      @bookmark = Bookmark.new
+      @bookmark = Bookmark.new
  #
- #      @bookmark.url = params[:bookmark][:url]
+      @bookmark.url = params[:bookmark][:url]
  #     @bookmark = @topic.bookmarks.build(bookmark_params)
  #     @bookmark.user = current_user
  #      @topic = Topic.find(params[:topic_id])

@@ -1,12 +1,26 @@
 
-<h1>All bookmarks</h1>
-<% @bookmarks.each do |bookmarks| %>
-	<p><%= link_to bookmarks.url, bookmark %></p>
-	<div class="media">
-		<div class="media-body">
-			<h4 class="media-heading">
-				<%= link_to bookmark.url, bookmark %>
-			</h4>
-		</div>
+
+<h1>bookmarks</h1>
+
+<div class="row">
+	<div class="col-md-8">
+
+		<% @bookmarks.each do |bookmark| %>
+			<div class="media">
+				<div class="media-body">
+					<h4 class="media-heading">
+
+						<%= link_to bookmark.url, bookmark %>
+					</h4>
+					<small>
+						<%= bookmark.url %>
+					</small>
+				</div>
+			</div>
+		<% end %>
 	</div>
-<% end %>
+	<div class="col-md-4">
+
+		<%= link_to "New bookmark", new_topic_bookmark_path, class: 'btn btn-success' %>
+	</div>
+</div>

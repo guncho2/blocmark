@@ -2,20 +2,23 @@ Rails.application.routes.draw do
 
 
 
-  resources :topics
+  resources :topics do
 
-  resources :bookmarks do
+    post 'topics/show'
+      get 'topics/index'
+      get 'topics/show'
+      get 'topics/new'
+      get 'topics/edit'
+  resources :bookmarks
 
+  
+  post 'bookmarks/show'
     get 'bookmarks/index'
     get 'bookmarks/show'
     get 'bookmarks/new'
     get 'bookmarks/edit'
 
-post 'topics/show'
-  get 'topics/index'
-  get 'topics/show'
-  get 'topics/new'
-  get 'topics/edit'
+
 end
 
   devise_for :users

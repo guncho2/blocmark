@@ -1,6 +1,6 @@
 <h1>Edit Bookmark</h1>
 <%= @bookmark.url %>
-<%= form_for [@bookmark.topic, bookmark] do |f| %>
+<%= form_for @bookmark.url do |f| %>
  <div class="form-group">
    <%= f.label :url %>
    <%= f.text_field :url, class: 'form-control', placeholder: "Enter topic bookmark here" %>

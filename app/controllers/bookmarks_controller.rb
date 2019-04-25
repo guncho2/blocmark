@@ -2,8 +2,9 @@ class BookmarksController < ApplicationController
 
 
   def show
-	    @bookmark = Bookmark.find(params[:id])
+      @bookmark = Bookmark.find(params[:id])
        @topic = @bookmark.topic
+       @topic = Topic.find(params[:topic_id])
 	  end
 
 
@@ -24,15 +25,18 @@ class BookmarksController < ApplicationController
 	  end
 
 	  def edit
-	    @bookmark = Bookmark.find(params[:id])
+	    # @bookmark = Bookmark.find(bookmark_params)
+      @topic = Topic.find(params[:topic_id])
+    @bookmark = Bookmark.find(params[:id])
 	  end
 
 	  def create
+      puts @bookmark
       @bookmark = Bookmark.new
  #
       @bookmark.url = params[:bookmark][:url]
  #     @bookmark = @topic.bookmarks.build(bookmark_params)
- #     @bookmark.user = current_user
+    #  @bookmark.user = current_user
  #      @topic = Topic.find(params[:topic_id])
 
  #     @bookmark.topic = @topic
@@ -45,13 +49,19 @@ class BookmarksController < ApplicationController
 
 
  @bookmark.topic = @topic
-# @bookmark.user = @user
+@bookmark.user = @user
 
 
 	      if @bookmark.save
+
+          puts '>>>>> bookmark was saved'
+
 	        flash[:notice] = "Bookmark was saved."
 	        redirect_to [@topic, @bookmark]
 	      else
+
+          puts '>>>>> failed to save bookmark'
+
 	        flash[:error] = "There was an error saving the bookmark. Please try again."
 	        render :new
 	      end
@@ -62,9 +72,11 @@ class BookmarksController < ApplicationController
 	     @bookmark.assign_attributes(bookmark_params)
 
 	     if @bookmark.save
+         puts '>>>>> bookmark was saved'
 	       flash[:notice] = "Bookmark was updated."
 	       redirect_to [@bookmark.topic, @bookmark]
 	     else
+         puts '>>>>> failed to save bookmark'
 	       flash[:error] = "There was an error saving this bookmark. Please try again."
 	       render :edit
 	     end
@@ -86,7 +98,7 @@ class BookmarksController < ApplicationController
 	   private
 
 	   def bookmark_params
-	     params.require(:bookmark).permit(:url)
+	     params.require(:bookmark).permit(:url, :topic, :user)
 	   end
 
 end

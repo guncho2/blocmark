@@ -68,6 +68,6 @@ def edit
   private
 
   def topic_params
-    params.require(:topic).permit(:title, :user)
+    params.require(:topic).permit(:title, :user, :url)
     end
 end

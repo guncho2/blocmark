@@ -18,11 +18,12 @@
            <h4 class="media-heading">
              <%= link_to @bookmark.url %>
            </h4>
-           
+
 
          </div>
        </div>
-<%= link_to "New Bookmark", new_topic_bookmark_path(@bookmark), class: 'btn btn-success' %>
+
+<%= link_to "New Bookmark", new_topic_bookmark_path(@bookmark.topic, @bookmark), class: 'btn btn-success' %>
    </div>
 
 

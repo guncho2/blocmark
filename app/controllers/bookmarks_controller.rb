@@ -21,7 +21,7 @@ class BookmarksController < ApplicationController
       puts '>>>>>>>'
       puts params
       @topic = Topic.find(params[:topic_id])
-    
+
       @bookmark = Bookmark.new
 	  end
 

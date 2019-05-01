@@ -1,25 +1,24 @@
 ActionMailer::Base.smtp_settings = {
   port:              587,
   address:           'smtp.mailgun.org',
-  user_name:         ENV['postmaster@sandbox38e4d786234f4d91b75fa6b9ccbd2ee9.mailgun.org'],
-  password:          ENV['1dedc2134c6ecfe10528be1d3aa8a76d-dc5f81da-e07915f0'],
-  domain:            'https://sandbox38e4d786234f4d91b75fa6b9ccbd2ee9.mailgun.org',
+  user_name:         ENV['MAILGUN_SMTP_LOGIN'],
+  password:          ENV['MAILGUN_SMTP_PASSWORD'],
+  domain:            'quiet-beyond-87980.herokuapp.com',
   authentication:    :plain,
   content_type:      'text/html'
 }
 ActionMailer::Base.delivery_method = :smtp
 
-
+# Makes debugging *way* easier.
 ActionMailer::Base.raise_delivery_errors = true
 
 class DevelopmentMailInterceptor
   def self.delivering_email(message)
-    message.to =  'youremail@website.com'
+    message.to =  'guncho@gmail.com'
     message.cc = nil
     message.bcc = nil
   end
 end
-
 
 if Rails.env.development?
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)

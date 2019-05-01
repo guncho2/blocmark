@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = params[:user]
-    @url  = 'http://https://quiet-beyond-87980.herokuapp.com/login'
+    @url  = 'https://quiet-beyond-87980.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
 

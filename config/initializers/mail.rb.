@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {
   port:              587,
   address:           'smtp.mailgun.org',
-  user_name:         ENV['MAILGUN_SMTP_LOGIN'],
-  password:          ENV['MAILGUN_SMTP_PASSWORD'],
-  domain:            'quiet-beyond-87980.herokuapp.com',
+  user_name:         ENV['MG_USER_NAME'],
+  password:          ENV['MG_PASSWORD'],
+  domain:            ENV['MG_DOMAIN'],
   authentication:    :plain,
   content_type:      'text/html'
 }

@@ -11,7 +11,7 @@ class IncomingController < ApplicationController
     @url = params["body-plain"]
 
     if @user.nil?
-      @user = User.create!(email: params[:sender], password: 'password')
+      @user = User.new(email: params[:sender], password: 'password')
       @user.skip_confirmation!
       @user.save!
     end
@@ -28,3 +28,6 @@ class IncomingController < ApplicationController
   end
 
 end
+
+
+## can-be-anything@sandboxa77151b7558f4b308d4fd24e8ed8c4e6.mailgun.org

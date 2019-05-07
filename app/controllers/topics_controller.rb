@@ -1,12 +1,6 @@
 class TopicsController < ApplicationController
-
-  # before_action :authenticate_user!
-
   def index
-
     @topics = Topic.all
-
-    # return a collection of topics
   end
 
   def show
@@ -17,53 +11,48 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
-def create
+  def create
+    @topic = Topic.new(topic_params)
+    @topic.user = current_user
 
-  @topic = Topic.new(topic_params)
-  @topic.user = current_user
-
-  if @topic.save
-    flash[:notice] = "Topic was saved succesfully"
-    redirect_to @topic
-  else
-    flash[:error] = "There was an error creating a Topic, please try again"
-    render:new
+    if @topic.save
+      flash[:notice] = 'Topic was saved succesfully'
+      redirect_to @topic
+    else
+      flash[:error] = 'There was an error creating a Topic, please try again'
+      render:new
+    end
   end
-end
 
-def edit
-	    @topic = Topic.find(params[:id])
-	  end
+  def edit
+    @topic = Topic.find(params[:id])
+      end
 
-	  def update
-	    @topic = Topic.find(params[:id])
+  def update
+    @topic = Topic.find(params[:id])
 
-	    @topic.assign_attributes(topic_params)
+    @topic.assign_attributes(topic_params)
 
-	    if @topic.save
-	      flash[:notice] = "Topic was updated"
-	      redirect_to @topic
-	    else
-	      flash[:error] = "Error saving topic. Please try again."
-	      render :edit
-	    end
-	  end
+    if @topic.save
+      flash[:notice] = 'Topic was updated'
+      redirect_to @topic
+    else
+      flash[:error] = 'Error saving topic. Please try again.'
+      render :edit
+    end
+   end
 
-	  def destroy
-	    @topic = Topic.find(params[:id])
+  def destroy
+    @topic = Topic.find(params[:id])
 
-	    if @topic.destroy
-	      flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
-	      redirect_to topics_path
-	    else
-	      flash[:error] = "There was an error deleting the topic."
-	      render :show
-	    end
-	  end
-
-
-
-
+    if @topic.destroy
+      flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = 'There was an error deleting the topic.'
+      render :show
+    end
+   end
 
   private
 

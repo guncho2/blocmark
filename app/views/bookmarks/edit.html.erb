@@ -2,12 +2,11 @@
 <%= @bookmark.url %>
 <%= form_for [@topic, @bookmark] do |f| %>
 
- <div class="form-group">
-   <%= f.label :url %>
-   <%= f.text_field :url, class: 'form-control', placeholder: "Enter topic bookmark here" %>
- </div>
+<div class="form-group">
+  <%= f.label :url %>
+  <%= f.text_field :url, class: 'form-control', placeholder: "Enter topic bookmark here" %>
+</div>
 
+<%= f.submit "Save", class: 'btn btn-success' %>
 
-     <%= f.submit "Save", class: 'btn btn-success' %>
-
- <% end %>
+<% end %>

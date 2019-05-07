@@ -1,5 +1,4 @@
 class IncomingController < ApplicationController
-
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
@@ -8,7 +7,7 @@ class IncomingController < ApplicationController
 
     puts "INCOMING PARAMS: #{params}"
 
-    @url = params["body-plain"]
+    @url = params['body-plain']
 
     if @user.nil?
       @user = User.new(email: params[:sender], password: 'password')
@@ -26,8 +25,6 @@ class IncomingController < ApplicationController
 
     head 200
   end
-
 end
-
 
 ## can-be-anything@sandboxa77151b7558f4b308d4fd24e8ed8c4e6.mailgun.org

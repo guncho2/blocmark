@@ -1,4 +1,3 @@
-
 class UserMailer < ApplicationMailer
   default from: 'guncho@gmail.com'
 
@@ -10,8 +9,6 @@ class UserMailer < ApplicationMailer
 
   def new_record_notification(record)
     @record = record
-    mail to: "guncho@gmail.com", subject: "Email for mailgun sent from Blocmarks!"
+    mail to: 'guncho@gmail.com', subject: 'Email for mailgun sent from Blocmarks!'
   end
-
-
 end

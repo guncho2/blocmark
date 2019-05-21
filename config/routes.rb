@@ -7,7 +7,10 @@ post :incoming, to: 'incoming#create'
 end
 
   devise_for :users
-  
+
+  # get '/welcome_email'
+  get '/welcome/index'
+  get '/welcome/about'
 
   root to: 'welcome#index'
 

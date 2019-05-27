@@ -42,7 +42,7 @@ class BookmarksController < ApplicationController
       redirect_to [@topic, @bookmark]
     else
       puts '>>>>> failed to save bookmark'
-      lash[:error] = 'There was an error saving the bookmark. Please try again.'
+      flash[:error] = 'There was an error saving the bookmark. Please try again.'
       render :new
        end
    end

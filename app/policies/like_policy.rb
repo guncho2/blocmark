@@ -1,4 +1,4 @@
-class TopicPolicy < ApplicationPolicy
+class LikePolicy < ApplicationPolicy
 
   def index?
     true
@@ -19,6 +19,6 @@ class TopicPolicy < ApplicationPolicy
   def new?
     create?
   end
-  
+
 
 end

@@ -5,7 +5,7 @@ class LikesController < ApplicationController
   end
 
   def new
-  
+
     @bookmark = Bookmark.find(params[:bookmark_id])
     @like = Like.new
     authorize @like
@@ -13,13 +13,13 @@ class LikesController < ApplicationController
 
   def create
     @bookmark = Bookmark.find(params[:bookmark_id])
-    like = current_user.likes.build(bookmark: @bookmark)
+    @like = current_user.likes.build(bookmark: @bookmark)
     authorize @like
 
-    if like.save
+    if @like.save
       puts '>>>>> bookmark was saved'
       flash[:notice] = 'liked was saved.'
-      redirect_to [@bookmark, @like]
+      redirect_to [@bookmark.topic, @bookmark]
 
       # Add code to generate a success flash and redirect to @bookmark
     else
@@ -33,14 +33,14 @@ class LikesController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
-    like = current_user.likes.build(bookmark: @bookmark)
+    @like = current_user.likes.find(params[:id])
     authorize @like
     # Get the bookmark from the params
     # Find the current user's like with the ID in the params
 
-    if like.destroy
-      flash[:notice] = "\"#{@like.url}\" was deleted successfully."
-      redirect_to @like.bookmark
+    if @like.destroy
+      flash[:notice] = "\"#{@like.bookmark.url}\" was deleted successfully."
+      redirect_to [@bookmark.topic, @bookmark]
       # Flash success and redirect to @bookmark
     else
       flash[:error] = 'There was an error deleting the like.'

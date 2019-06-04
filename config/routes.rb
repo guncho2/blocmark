@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'likes/index'
   post :incoming, to: 'incoming#create'
 

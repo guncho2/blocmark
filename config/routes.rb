@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: [:show]
+  
   # get '/welcome_email'
   get '/welcome/index'
   get '/welcome/about'

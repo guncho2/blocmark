@@ -1,0 +1,14 @@
+<div class="row">
+  <h3>Liked Bookmarks:</h3>
+  <h1><%=@user.likes%></h1>
+    <div class="col-md-8">
+      <% @likes.each do |like| %>
+        <h4 class="media-heading">
+          <%="#{like.bookmark.user_bookmarks}" %>
+          <br>
+          <%= link_to bookmark.url, topic_bookmark_path(topic_url, bookmark), :target => '_self' %> <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+          <br>
+        </h4>
+      <% end %>
+    </div>
+</div>

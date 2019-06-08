@@ -17,7 +17,10 @@ class User < ApplicationRecord
  end
 
  def liked_bookmarks
-   likes.includes(bookmark: :topic).map(&:bookmark)
+   p likes
+   results = self.likes.includes(bookmark: :topic).map(&:bookmark)
+   p results
+   return results
  end
- 
+
 end

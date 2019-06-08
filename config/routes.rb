@@ -11,8 +11,16 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  devise_scope :user do
+    get 'users/sign_in' => 'devise/sessions#new'
+    get 'users/sign_out' => 'devise/sessions#destroy'
+  end
+
+
   resources :users, only: [:show]
-  
+
+  match 'users/show/:id', to: 'users#show', via: 'get'
+
   # get '/welcome_email'
   get '/welcome/index'
   get '/welcome/about'
